@@ -1,1 +1,1 @@
-##[Amazon](www.amazon.ca)-like eCommerce project
+###Building an [Amazon](www.amazon.ca)-like eCommerce site
