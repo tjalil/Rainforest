@@ -1,5 +1,5 @@
   <h3><%= @product[:name] %></h3>
   <p>Description: <%= @product[:description] %></p>
-  <p>Price: <%= @product[:price_in_cents] %> cents</p>
+  <p>Price: $<%= @product.formatted_price %> </p>
 
 <p><%= link_to "Edit Product", edit_product_path(@product) %> | <%= link_to "Delete Product", @product, confirm: "Are you sure you want to delete this picture?", method: :delete %></p>
