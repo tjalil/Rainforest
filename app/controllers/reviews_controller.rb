@@ -1,10 +1,7 @@
 class ReviewsController < ApplicationController
 
   before_action :load_product
-
-  def show
-    @review = Review.new(params[:id])
-  end
+  before_action :ensure_logged_in
 
   def new
     @review = Review.new
