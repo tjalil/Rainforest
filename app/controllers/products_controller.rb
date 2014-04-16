@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-# before_action :require_login, except: [:index, :show]
+before_action :require_login, except: [:index, :show]
 
   def index
     @products = Product.all
@@ -54,10 +54,14 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :description, :price_in_cents)
   end
 
-  # def require_login
-  #   unless logged_in?
-  #     flash[:error] = "You need to be logged in to access this section"
-  #     redirect_to new_session_path
-  #   end
-  # end
+  def require_login
+    @user = User.find_by_email(params[:email])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect_to products_path, notice: "Welcome back!"
+    else
+      flash.now[:alert] = "Invalid email or password"
+      redirect_to new_session_path
+    end
+  end
 end
