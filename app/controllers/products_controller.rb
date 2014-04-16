@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+# before_action :require_login, except: [:index, :show]
+
   def index
     @products = Product.all
   end
@@ -46,4 +48,11 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :description, :price_in_cents)
   end
+
+  # def require_login
+  #   unless logged_in?
+  #     flash[:error] = "You need to be logged in to access this section"
+  #     redirect_to new_session_path
+  #   end
+  # end
 end
