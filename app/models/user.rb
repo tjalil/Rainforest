@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
   before_save :capitalize_name
+  has_many :reviews
+  has_many :products
 
   private
 
