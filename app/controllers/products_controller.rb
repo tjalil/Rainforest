@@ -1,7 +1,5 @@
 class ProductsController < ApplicationController
 
-before_action :require_login, except: [:index, :show]
-
   def index
     @products = Product.all
   end
@@ -54,14 +52,4 @@ before_action :require_login, except: [:index, :show]
     params.require(:product).permit(:name, :description, :price_in_cents)
   end
 
-  def require_login
-    @user = User.find_by_email(params[:email])
-    if @user && @user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to products_path, notice: "Welcome back!"
-    else
-      flash.now[:alert] = "Invalid email or password"
-      redirect_to new_session_path
-    end
-  end
 end

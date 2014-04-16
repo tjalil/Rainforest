@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
     @review = @product.reviews.build(review_params)
     @review.user_id = current_user.id
     if @review.save
-      redirect_to product_review_path, notice: "Successfully added your comment"
+      redirect_to product_path(@product), notice: "Successfully added your comment"
     else
       render :new
     end
