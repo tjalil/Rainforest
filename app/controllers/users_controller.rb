@@ -7,8 +7,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      @user.session.create
-      redirect_to products_path, notice: "You're now an official Rainforest-er!"
+      session[:user_id] = @user.id
+      redirect_to products_path(current_user), notice: "You're now an official Rainforest-er!"
     else
       render :new
     end
