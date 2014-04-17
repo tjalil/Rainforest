@@ -7,6 +7,6 @@
   <%= link_to image_tag(product.url, size: "100x100"), product_path(product) %>
   <p>Description: <%= product[:description] %></p>
   <p>Price: $<%= product.formatted_price %></p>
-  <p>Category: <%= Category.find(product.category_id).name %></p>
+  <p>Category: <%= link_to Category.find(product.category_id).name, category_path(product.category_id) %></p>
   <p>Total Reviews: <%= product.reviews.count %></p><br>
 <% end %>
