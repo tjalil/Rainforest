@@ -1,3 +1,5 @@
+<%= link_to "Back to Homepage", products_path %>
+
 <h1>Sign Up</h1>
 
 <%= form_for @user do |f|%>
@@ -13,23 +15,23 @@
   <% end %>
 
   <div class = "field">
-    <%= f.label :first_name %>
+    <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
   </div>
   <div class = "field">
-    <%= f.label :last_name %>
+    <%= f.label :last_name %><br>
     <%= f.text_field :last_name %>
   </div>
   <div class = "field">
-    <%= f.label :email %>
+    <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
   <div class = "field">
-    <%= f.label :password %>
+    <%= f.label :password %><br>
     <%= f.password_field :password %>
   </div>
   <div class = "field">
-    <%= f.label :password_confirmation %>
+    <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %>
   </div>
   <div class = "actions">

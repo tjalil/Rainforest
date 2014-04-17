@@ -8,20 +8,22 @@
   </head>
   <body>
 
-    <% if flash[:notice] %>
-      <p id = "notice"><%= flash[:notice] %></p>
-    <% end %>
-    <% if flash[:alert] %>
-      <p id = "alert"><%= flash[:alert] %></p>
-    <% end %>
+    <div class = "flash">
+      <% if flash[:notice] %>
+        <p id = "notice", style="color:green"><%= flash[:notice] %></p>
+      <% end %>
+      <% if flash[:alert] %>
+        <p id = "alert", style="color:red"><%= flash[:alert] %></p>
+      <% end %>
+    </div>
 
-    <p class = "userinfo">
+    <div class = "userinfo", style= "float: right">
       <% if current_user  %>
         Signed in as <%= current_user.first_name %> <%= current_user.last_name %> | <%= link_to "Logout", session_path("current"), method: :delete %>
       <% else %>
         <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
       <% end %>
-    </p>
+    </div>
 
     <%= yield %>
 
