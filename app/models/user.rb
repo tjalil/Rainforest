@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   before_save :capitalize_name
   has_many :reviews
   has_many :products
-
+  
   private
 
   def capitalize_name

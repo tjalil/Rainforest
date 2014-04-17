@@ -1,2 +1,9 @@
-<h2><%= @user.first_name %> <%= @user.last_name %></h2>
-<h4>Total Reviews: <%= @user.reviews.count %></h4>
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+<p>Total Reviews: <%= @user.reviews.count %></p><br>
+
+<% @user.reviews.reverse.each do |review| %>
+  <p><strong>Product Reviewed:</strong> <%= Product.find(review.product_id).name %></p>
+  <p><strong>Review:</strong> <em><%= review.comment %></em></p>
+  <p><strong>Review Date:</strong> <em><%= review.created_at %></em></p>
+  <p>____________________________________________</p>
+<% end %>
