@@ -12,11 +12,14 @@
 <p>Description: <%= @product[:description] %></p>
 <p>Price: $<%= @product.formatted_price %> </p>
 
-<h3>Reviews</h3>
-
 <% if @product.reviews.empty? %>
   <p>There are no reviews for this product</p>
 <% end %>
+
+<%= render "reviews/new" %>
+<p>____________________________________________</p>
+
+<h3>Reviews</h3>
 
 <% @product.reviews.reverse.each do |review| %>
   <p>
@@ -28,5 +31,3 @@
     <p>____________________________________________</p>
   <% end %> 
 <% end %>
-
-<%= render "reviews/new" %>

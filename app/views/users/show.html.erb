@@ -2,7 +2,7 @@
 <p>Total Reviews: <%= @user.reviews.count %></p><br>
 
 <% @user.reviews.reverse.each do |review| %>
-  <p><strong>Product Reviewed:</strong> <%= Product.find(review.product_id).name %></p>
+  <p><strong>Product Reviewed:</strong> <%= link_to Product.find(review.product_id).name, product_path(review.product_id) %></p>
   <p><strong>Review:</strong> <em><%= review.comment %></em></p>
   <p><strong>Review Date:</strong> <em><%= review.created_at %></em></p>
   <p>____________________________________________</p>
