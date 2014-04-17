@@ -20,7 +20,7 @@
   <p>There are no reviews for this product</p>
 <% end %>
 
-<% @product.reviews.each do |review| %>
+<% @product.reviews.reverse.each do |review| %>
   <p>
     <%= review.comment %>
   </p>
